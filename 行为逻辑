@@ -1,0 +1,170 @@
+extends CharacterBody2D
+@export var movespeed : float = 300.0
+@export var jump_velocity : float = -400.0
+@export var max_fall_speed : float = 500.0
+@export var fast_fall_speed : float = 900.0
+@export var dash_speed : float = 800.0
+@export var dash_speed_up : float = 800
+@export var dash_duration : float = 0.15
+@export var max_dash_count : int = 1
+@export var wall_slide_speed : float = 150.0
+@export var wall_jump_push : float = 400.0
+@export var max_stamina : float = 100.0
+@export var climb_stamina_drain : float = 10.0
+@export var climb_move_stamina_drain : float = 30.0
+@export var climb_jump_stamina_cost : float = 30.0
+@export var climb_speed : float = 120.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var animator = $AnimatedSprite2D
+var is_dead : bool = false
+var is_fast_falling : bool = false
+var is_landing : bool = false
+var was_on_floor : bool = true
+var is_dashing : bool = false
+var current_dash_count : int = 1
+var dash_timer : float = 0.0
+var dash_direction : Vector2 = Vector2.RIGHT
+var is_wall_sliding : bool = false
+var is_climbing : bool = false
+var stamina : float = 100.0
+func _ready() -> void:
+	current_dash_count = max_dash_count
+	stamina = max_stamina
+func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+	if is_on_floor() and not was_on_floor:
+		if is_fast_falling:
+			is_landing = true
+			animator.play("fastfall_land")
+			velocity.x = 0
+			await animator.animation_finished
+			is_landing = false
+		is_fast_falling = false
+	was_on_floor = is_on_floor()
+	if is_on_floor():
+		stamina = max_stamina
+		if not is_dashing:
+			current_dash_count = max_dash_count
+	if is_landing:
+		move_and_slide()
+		return
+	if Input.is_action_just_pressed("dash") and current_dash_count > 0 and not is_dashing:
+		is_dashing = true
+		current_dash_count -= 1
+		dash_timer = dash_duration
+		var input_dir = Input.get_vector("left", "right", "up", "down")
+		if input_dir != Vector2.ZERO:
+			dash_direction = input_dir.normalized()
+		else:
+			dash_direction = Vector2.LEFT if animator.flip_h else Vector2.RIGHT
+		animator.play("dash")
+	if is_dashing:
+		var current_dash_speed = dash_speed_up if dash_direction.y < 0 else dash_speed
+		velocity = dash_direction * current_dash_speed
+		dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false
+			velocity.y = 0
+		move_and_slide()
+		return
+	var touching_wall = is_on_wall() and not is_on_floor()
+	var wall_normal = get_wall_normal()
+	var dir_input = Input.get_axis("left", "right")
+	var moving_away = (wall_normal.x > 0 and dir_input > 0) or (wall_normal.x < 0 and dir_input < 0)
+	var pressing_down = Input.is_action_pressed("down")
+	if is_climbing:
+		if not Input.is_action_pressed("climb") or not touching_wall or stamina <= 0 or is_on_floor() or moving_away:
+			is_climbing = false
+	elif touching_wall and Input.is_action_pressed("climb") and stamina > 0:
+		is_climbing = true
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor() and not Input.is_action_pressed("down"):
+			velocity.y = jump_velocity
+			is_fast_falling = false
+		elif touching_wall:
+			if moving_away:
+				velocity.y = jump_velocity
+				velocity.x = wall_normal.x * wall_jump_push
+				is_climbing = false
+				is_fast_falling = false
+			elif is_climbing:
+				velocity.y = jump_velocity
+				stamina -= climb_jump_stamina_cost
+				is_climbing = false
+				is_fast_falling = false
+	if is_climbing:
+		var climb_dir = Input.get_axis("up", "down")
+		if climb_dir != 0:
+			velocity.y = climb_dir * climb_speed
+			stamina -= climb_move_stamina_drain * delta
+		else:
+			velocity.y = 0
+			stamina -= climb_stamina_drain * delta
+		velocity.x = 0
+		if wall_normal.x > 0:
+			animator.flip_h = true
+		elif wall_normal.x < 0:
+			animator.flip_h = false
+		animator.play("wall_slide")
+		move_and_slide()
+		return
+	is_wall_sliding = false
+	if not is_on_floor():
+		if touching_wall and velocity.y > 0 and not pressing_down and not moving_away:
+			is_wall_sliding = true
+			if wall_normal.x > 0:
+				animator.flip_h = true
+			elif wall_normal.x < 0:
+				animator.flip_h = false
+		if is_wall_sliding:
+			velocity.y += gravity * delta
+			velocity.y = min(velocity.y, wall_slide_speed)
+		else:
+			velocity.y += gravity * delta
+			if pressing_down:
+				velocity.y += gravity * 2.5 * delta
+			var current_max_speed = fast_fall_speed if pressing_down else max_fall_speed
+			velocity.y = min(velocity.y, current_max_speed)
+			if pressing_down and velocity.y > 0:
+				is_fast_falling = true
+	if is_on_floor() and pressing_down:
+		velocity.x = 0
+	elif dir_input:
+		if is_wall_sliding and moving_away:
+			is_wall_sliding = false
+		if not is_wall_sliding:
+			velocity.x = dir_input * movespeed
+		if dir_input < 0:
+			animator.flip_h = true
+		elif dir_input > 0:
+			animator.flip_h = false
+	else:
+		velocity.x = move_toward(velocity.x, 0, movespeed)
+	if not is_on_floor():
+		if is_wall_sliding:
+			animator.play("wall_slide")
+		elif velocity.y < 0:
+			animator.play("jump")
+		else:
+			if pressing_down:
+				animator.play("fastfall")
+			else:
+				animator.play("fall")
+	else:
+		if pressing_down:
+			animator.play("duck")
+		elif velocity.x == 0:
+			animator.play("idle")
+		else:
+			animator.play("run")
+	move_and_slide()
+func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	velocity = Vector2.ZERO
+	animator.play("death")
+	$CollisionShape2D.set_deferred("disabled", true)
+	await animator.animation_finished
+	get_tree().reload_current_scene()
