@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cgjadjgdey3j6"]
+
+[ext_resource type="Script" uid="uid://b4a882tetlksv" path="res://pause_menu.gd" id="1_p81d2"]
+[ext_resource type="Texture2D" uid="uid://bcys75pvcu72g" path="res://Graphics/UI/Buttons/start(1).png" id="2_2nc7s"]
+[ext_resource type="Texture2D" uid="uid://psa3my25yljo" path="res://697258bb53770xuw.png" id="2_d3xb4"]
+[ext_resource type="Texture2D" uid="uid://vumc7s8pmlkp" path="res://Graphics/UI/Buttons/设置.png" id="3_d3xb4"]
+[ext_resource type="Texture2D" uid="uid://b7k0vqr3khivx" path="res://9790ca9242a2b0ea.png" id="3_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://g7frqtqvn74c" path="res://Graphics/UI/Buttons/退出.png" id="4_mxa3g"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=608631713]
+layer = 10
+script = ExtResource("1_p81d2")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1509876337]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="MenuPanel" type="VBoxContainer" parent="." unique_id=1851274091]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -29.5
+offset_right = 20.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="697258Bb53770Xuw" type="Sprite2D" parent="MenuPanel" unique_id=1090205463]
+position = Vector2(-300, 178.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_d3xb4")
+
+[node name="9790Ca9242a2b0Ea" type="Sprite2D" parent="MenuPanel" unique_id=101540829]
+position = Vector2(470.99997, 181.49998)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_mxa3g")
+
+[node name="TitleLabel" type="Label" parent="MenuPanel" unique_id=938602566]
+layout_mode = 2
+theme_override_font_sizes/font_size = 59
+text = "已暂停"
+
+[node name="ContinueButton" type="Button" parent="MenuPanel" unique_id=942353361]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "继续"
+icon = ExtResource("2_2nc7s")
+
+[node name="SettingsButton" type="Button" parent="MenuPanel" unique_id=1728729360]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "设置"
+icon = ExtResource("3_d3xb4")
+
+[node name="MainMenuButton" type="Button" parent="MenuPanel" unique_id=737634223]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "回到主页"
+icon = ExtResource("4_mxa3g")

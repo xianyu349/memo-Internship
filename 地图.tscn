@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cm2ds6irk7rns"]
+
+[ext_resource type="Script" uid="uid://bmkoiv527fqx0" path="res://地图.gd" id="1_nmtyc"]
+[ext_resource type="Texture2D" uid="uid://bvqfkl5ugc03g" path="res://屏幕截图 2026-10-06 234236.png" id="2_0jhut"]
+[ext_resource type="Texture2D" uid="uid://cmeidset3rci6" path="res://Graphics/World/Hazards/spikes_up.png" id="2_4ktok"]
+[ext_resource type="PackedScene" uid="uid://in0tf5yqwxng" path="res://chunks/ground_chunk.tscn" id="2_8lb16"]
+[ext_resource type="Texture2D" uid="uid://mjr4rtw0d7fw" path="res://Graphics/Background/layer_01_clouds.png" id="3_5r5ua"]
+[ext_resource type="PackedScene" uid="uid://x547tnqyp7oi" path="res://chunks/summit_chunk.tscn" id="3_rvx4y"]
+[ext_resource type="Texture2D" uid="uid://mnt748wmiln7" path="res://Graphics/Gameplay/strawberry.png" id="3_v1v5m"]
+[ext_resource type="PackedScene" uid="uid://dgf8rngnhsv58" path="res://人物.tscn" id="4_82ubh"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="4_eaha6"]
+[ext_resource type="PackedScene" uid="uid://b68ecwsfsw7d2" path="res://地图块/normal_a.tscn" id="4_uio5t"]
+[ext_resource type="PackedScene" uid="uid://cyoji0dyi1df0" path="res://地图块/normal_b.tscn" id="5_d57vh"]
+[ext_resource type="PackedScene" uid="uid://dt4e6wx32d506" path="res://地图块/normal_c.tscn" id="6_sbtf6"]
+[ext_resource type="PackedScene" uid="uid://pr6ibr7uv7f7" path="res://save_chunk.tscn" id="8_0jhut"]
+[ext_resource type="PackedScene" uid="uid://b74yv0yfu545h" path="res://talentshop_chunk.tscn" id="8_0wpix"]
+[ext_resource type="PackedScene" uid="uid://cmghii70rxkvm" path="res://item_drop.tscn" id="9_t07i4"]
+[ext_resource type="PackedScene" uid="uid://d3yeq3jt22e6h" path="res://reward.tscn" id="10_4ktok"]
+[ext_resource type="PackedScene" uid="uid://ca68hhwtuelbt" path="res://hud.tscn" id="12_0jhut"]
+[ext_resource type="Script" uid="uid://ci1a4g7ocydfa" path="res://camera_follow.gd" id="16_q8t5d"]
+[ext_resource type="Script" uid="uid://ohoxhj1utxh" path="res://decor_layer.gd" id="17_5r5ua"]
+[ext_resource type="PackedScene" uid="uid://cgjadjgdey3j6" path="res://pause_menu.tscn" id="17_fer4o"]
+[ext_resource type="Texture2D" uid="uid://cb66hrn4ekg1f" path="res://Graphics/Background/layer_04_trees.png" id="18_18my1"]
+[ext_resource type="PackedScene" uid="uid://6udix56kim4s" path="res://win_screen.tscn" id="18_q8t5d"]
+
+[node name="地图" type="Node2D" unique_id=2055815621]
+script = ExtResource("1_nmtyc")
+spike_texture = ExtResource("2_4ktok")
+spike_size = 40.0
+strawberry_texture = ExtResource("3_v1v5m")
+halfwall_texture = ExtResource("4_eaha6")
+lava_textures = Array[Texture2D]([ExtResource("2_0jhut")])
+ground_chunk = ExtResource("2_8lb16")
+summit_chunk = ExtResource("3_rvx4y")
+normal_chunks = Array[PackedScene]([ExtResource("4_uio5t"), ExtResource("5_d57vh"), ExtResource("6_sbtf6")])
+save_chunks = Array[PackedScene]([ExtResource("8_0jhut")])
+talent_shop_chunks = Array[PackedScene]([ExtResource("8_0wpix")])
+item_shop_chunks = Array[PackedScene]([ExtResource("9_t07i4")])
+reward_chunks = Array[PackedScene]([ExtResource("10_4ktok")])
+
+[node name="CharacterBody2D" parent="." unique_id=1429687528 groups=["player"] instance=ExtResource("4_82ubh")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=994853151]
+script = ExtResource("16_q8t5d")
+
+[node name="DecorLayer" type="Node2D" parent="CharacterBody2D/Camera2D" unique_id=1898894865]
+script = ExtResource("17_5r5ua")
+tree_texture = ExtResource("18_18my1")
+cloud_texture = ExtResource("3_5r5ua")
+
+[node name="HUD" parent="." unique_id=1177462436 instance=ExtResource("12_0jhut")]
+
+[node name="PauseMenu" parent="." unique_id=608631713 instance=ExtResource("17_fer4o")]
+
+[node name="WinScreen" parent="." unique_id=2033102909 instance=ExtResource("18_q8t5d")]

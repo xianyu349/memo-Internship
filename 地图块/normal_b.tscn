@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cyoji0dyi1df0"]
+
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="1_0je0q"]
+[ext_resource type="Texture2D" uid="uid://dkhjvfvcpdmtx" path="res://Graphics/World/Platforms/one_way.png" id="2_7bc5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k3ml"]
+size = Vector2(150, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0je0q"]
+size = Vector2(177, 59)
+
+[node name="NormalB" type="Node2D" unique_id=419841997]
+
+[node name="step" type="StaticBody2D" parent="." unique_id=301828228]
+
+[node name="OneWay" type="Sprite2D" parent="step" unique_id=460223081]
+position = Vector2(201, 203.5)
+scale = Vector2(6.25, 2.3125)
+texture = ExtResource("2_7bc5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="step" unique_id=725528896]
+position = Vector2(200, 200)
+shape = SubResource("RectangleShape2D_8k3ml")
+one_way_collision = true
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=124158430]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=393380514]
+position = Vector2(87.500015, 259)
+scale = Vector2(3.7291656, 0.48333332)
+texture = ExtResource("1_0je0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1866925269]
+position = Vector2(88.5, 258.5)
+shape = SubResource("RectangleShape2D_0je0q")

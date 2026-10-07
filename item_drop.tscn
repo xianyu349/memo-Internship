@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cmghii70rxkvm"]
+
+[ext_resource type="Script" uid="uid://bnjvgmks722vn" path="res://item_drop.gd" id="1_an6nj"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="2_g4j5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tdqx"]
+size = Vector2(512, 60)
+
+[node name="ShopChunk" type="Node2D" unique_id=2055386190]
+script = ExtResource("1_an6nj")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=140003495]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=717535466]
+position = Vector2(255.00002, 258)
+scale = Vector2(10.708332, 0.5)
+texture = ExtResource("2_g4j5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=861706405]
+position = Vector2(256, 258)
+shape = SubResource("RectangleShape2D_6tdqx")

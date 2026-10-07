@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://g4nj1pmwamx8"]
+
+[ext_resource type="Script" uid="uid://mvvmkyxj4hoc" path="res://地刺.gd" id="2_50dpn"]
+[ext_resource type="Texture2D" uid="uid://cmeidset3rci6" path="res://Graphics/World/Hazards/spikes_up.png" id="2_6812f"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="2_tbfug"]
+[ext_resource type="Script" uid="uid://dnt41kmg4inh0" path="res://strawberry.gd" id="4_rbnuv"]
+[ext_resource type="Texture2D" uid="uid://mnt748wmiln7" path="res://Graphics/Gameplay/strawberry.png" id="5_s6faw"]
+[ext_resource type="Script" uid="uid://yrtmuwx7p1yk" path="res://strawberry_2.gd" id="6_bkf3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50dpn"]
+size = Vector2(512, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_371yt"]
+size = Vector2(5.490201, 3.2500246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbnuv"]
+size = Vector2(10, 10)
+
+[node name="DangerA" type="Area2D" unique_id=382704454]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=695133615]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=833106140]
+position = Vector2(255.00002, 258)
+scale = Vector2(10.708332, 0.5)
+texture = ExtResource("2_tbfug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=564458978]
+position = Vector2(256, 258)
+shape = SubResource("RectangleShape2D_50dpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=70933458]
+position = Vector2(356, 474)
+scale = Vector2(6.375, 5.5)
+shape = SubResource("RectangleShape2D_371yt")
+script = ExtResource("2_50dpn")
+
+[node name="SpikesUp" type="Sprite2D" parent="CollisionShape2D" unique_id=1203304136]
+position = Vector2(0.35294342, -0.8181915)
+scale = Vector2(0.79411775, 0.58333343)
+texture = ExtResource("2_6812f")
+
+[node name="Strawberry" type="Area2D" parent="." unique_id=174050595]
+script = ExtResource("4_rbnuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Strawberry" unique_id=1096925143]
+position = Vector2(180, 150)
+shape = SubResource("RectangleShape2D_rbnuv")
+
+[node name="Strawberry3" type="Sprite2D" parent="Strawberry/CollisionShape2D" unique_id=1690696286]
+texture = ExtResource("5_s6faw")
+
+[node name="Strawberry2" type="Area2D" parent="." unique_id=704197647]
+script = ExtResource("6_bkf3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Strawberry2" unique_id=1111837449]
+position = Vector2(350, 150)
+shape = SubResource("RectangleShape2D_rbnuv")
+
+[node name="Strawberry4" type="Sprite2D" parent="Strawberry2/CollisionShape2D" unique_id=1332281387]
+texture = ExtResource("5_s6faw")

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dt4e6wx32d506"]
+
+[ext_resource type="Texture2D" uid="uid://bo34ktdx4blsg" path="res://Graphics/World/Platforms/wood.png" id="1_dxp50"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="2_thtyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i4kc"]
+size = Vector2(200, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxp50"]
+size = Vector2(177, 59)
+
+[node name="NormalC" type="Node2D" unique_id=295575829]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=978242915]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=573970392]
+position = Vector2(140, 160)
+shape = SubResource("RectangleShape2D_5i4kc")
+one_way_collision = true
+
+[node name="Wood" type="Sprite2D" parent="StaticBody2D" unique_id=596254962]
+position = Vector2(140, 164)
+scale = Vector2(6.25, 2.5)
+texture = ExtResource("1_dxp50")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=269388230]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=141397861]
+position = Vector2(370, 100)
+shape = SubResource("RectangleShape2D_5i4kc")
+one_way_collision = true
+
+[node name="Wood" type="Sprite2D" parent="StaticBody2D/StaticBody2D" unique_id=1527376465]
+position = Vector2(370, 104)
+scale = Vector2(6.25, 2.5)
+texture = ExtResource("1_dxp50")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1817414180]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=710033884]
+position = Vector2(87.500015, 259)
+scale = Vector2(3.7291656, 0.48333332)
+texture = ExtResource("2_thtyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1464474258]
+position = Vector2(88.5, 258.5)
+shape = SubResource("RectangleShape2D_dxp50")

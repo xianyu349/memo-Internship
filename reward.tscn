@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d3yeq3jt22e6h"]
+
+[ext_resource type="Script" uid="uid://cvvsn0iinp465" path="res://reward.gd" id="1_fromr"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="2_c42fa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljfkd"]
+size = Vector2(512, 60)
+
+[node name="Reward" type="Node2D" unique_id=1269995579]
+script = ExtResource("1_fromr")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=334625352]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=984289402]
+position = Vector2(255.00002, 258)
+scale = Vector2(10.708332, 0.5)
+texture = ExtResource("2_c42fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=150651348]
+position = Vector2(256, 258)
+shape = SubResource("RectangleShape2D_ljfkd")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bdgot7ct78oy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmy2a"]
+size = Vector2(512, 60)
+
+[node name="GroundChunk" type="Node2D" unique_id=1274778268]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=243042514]
+position = Vector2(256, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1827409501]
+position = Vector2(72.5, 35)
+scale = Vector2(512, 512)
+shape = SubResource("RectangleShape2D_vmy2a")

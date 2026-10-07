@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://x547tnqyp7oi"]
+
+[ext_resource type="Script" uid="uid://dswvmrjg6dqj3" path="res://chunks/summit_chunk.gd" id="1_xg7cs"]
+[ext_resource type="Script" uid="uid://4invn88i1wv6" path="res://chunks/flag_area.gd" id="2_cvbc7"]
+[ext_resource type="Texture2D" uid="uid://cpr5y3jdrstk6" path="res://Graphics/Gameplay/finish_flag.png" id="2_i3cy8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvbc7"]
+size = Vector2(100, 150)
+
+[node name="summit_chunk" type="Node2D" unique_id=1947688416]
+script = ExtResource("1_xg7cs")
+
+[node name="FlagArea" type="Area2D" parent="." unique_id=1611461493]
+script = ExtResource("2_cvbc7")
+
+[node name="Flag" type="Sprite2D" parent="FlagArea" unique_id=1822348422]
+position = Vector2(258, 178.5)
+scale = Vector2(1.59375, 2.3281248)
+texture = ExtResource("2_i3cy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagArea" unique_id=286042721]
+position = Vector2(258, 178)
+shape = SubResource("RectangleShape2D_cvbc7")

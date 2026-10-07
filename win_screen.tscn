@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://6udix56kim4s"]
+
+[ext_resource type="Script" uid="uid://cnqapom8lfg1p" path="res://win_screen.gd" id="1_ufkpf"]
+[ext_resource type="Texture2D" uid="uid://bcys75pvcu72g" path="res://Graphics/UI/Buttons/start(1).png" id="2_7t713"]
+[ext_resource type="Texture2D" uid="uid://g7frqtqvn74c" path="res://Graphics/UI/Buttons/退出.png" id="3_l471v"]
+[ext_resource type="Texture2D" uid="uid://ci15eapevc2o" path="res://Graphics/UI/HUD/strawberry.png" id="4_idp7t"]
+[ext_resource type="Texture2D" uid="uid://cpr5y3jdrstk6" path="res://Graphics/Gameplay/finish_flag.png" id="5_y0ktu"]
+[ext_resource type="Texture2D" uid="uid://kmv2qicfc0m7" path="res://Graphics/Effects/wind_particle.png" id="6_w24ly"]
+[ext_resource type="Texture2D" uid="uid://c44hoegqskmkf" path="res://Graphics/Effects/snow_particle.png" id="7_mpalk"]
+[ext_resource type="Texture2D" uid="uid://dv5ltim7xsfwo" path="res://Graphics/Effects/dust_particle.png" id="8_fj7kq"]
+[ext_resource type="Texture2D" uid="uid://csn2bgiftv7rr" path="res://Graphics/Gameplay/checkpoint_active.png" id="9_6iptg"]
+[ext_resource type="Texture2D" uid="uid://mnt748wmiln7" path="res://Graphics/Gameplay/strawberry.png" id="10_vjyh7"]
+
+[node name="WinScreen" type="CanvasLayer" unique_id=2033102909]
+script = ExtResource("1_ufkpf")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=2142709605]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="MenuPanel" type="VBoxContainer" parent="." unique_id=413242324]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -37.0
+offset_right = 20.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="MenuPanel" unique_id=716889706]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "你赢啦！"
+
+[node name="StatsLabel" type="Label" parent="MenuPanel" unique_id=17731392]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="RestartButton" type="Button" parent="MenuPanel" unique_id=84411448]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "我还能再爬一边"
+icon = ExtResource("2_7t713")
+
+[node name="MainMenuButton" type="Button" parent="MenuPanel" unique_id=1660426370]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "狠心退出"
+icon = ExtResource("3_l471v")
+
+[node name="Strawberry" type="Sprite2D" parent="." unique_id=177697456]
+position = Vector2(140, 214)
+texture = ExtResource("4_idp7t")
+
+[node name="Strawberry2" type="Sprite2D" parent="." unique_id=1834117452]
+position = Vector2(975, 203)
+texture = ExtResource("4_idp7t")
+
+[node name="FinishFlag" type="Sprite2D" parent="." unique_id=575798661]
+position = Vector2(151, 461)
+texture = ExtResource("5_y0ktu")
+
+[node name="FinishFlag2" type="Sprite2D" parent="." unique_id=731706443]
+position = Vector2(968, 482)
+texture = ExtResource("5_y0ktu")
+
+[node name="WindParticle" type="Sprite2D" parent="." unique_id=351347186]
+position = Vector2(375.75, 98.75)
+scale = Vector2(34.5, 21.5)
+texture = ExtResource("6_w24ly")
+
+[node name="SnowParticle" type="Sprite2D" parent="." unique_id=742751702]
+position = Vector2(805.5, 123)
+scale = Vector2(21.875, 12.5)
+texture = ExtResource("7_mpalk")
+
+[node name="DustParticle" type="Sprite2D" parent="." unique_id=318694641]
+position = Vector2(277.5, 408.5)
+scale = Vector2(18.875, 13.125)
+texture = ExtResource("8_fj7kq")
+
+[node name="FinishFlag3" type="Sprite2D" parent="." unique_id=482148103]
+position = Vector2(574.25, 609.50006)
+scale = Vector2(1.8046875, 0.95312583)
+texture = ExtResource("5_y0ktu")
+
+[node name="CheckpointActive" type="Sprite2D" parent="." unique_id=798358624]
+position = Vector2(561, 155)
+scale = Vector2(7.9375, 15.437501)
+texture = ExtResource("9_6iptg")
+
+[node name="Strawberry3" type="Sprite2D" parent="." unique_id=365599810]
+position = Vector2(579, 123.000015)
+scale = Vector2(8.166667, 7.5)
+texture = ExtResource("10_vjyh7")

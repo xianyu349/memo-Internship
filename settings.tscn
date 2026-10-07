@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://clcaunhckjd4o"]
+
+[ext_resource type="Script" uid="uid://b75rghmynsygv" path="res://settings.gd" id="1_nkug2"]
+[ext_resource type="Texture2D" uid="uid://g7frqtqvn74c" path="res://Graphics/UI/Buttons/退出.png" id="2_3ykye"]
+
+[node name="Settings" type="Control" unique_id=1882787922]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkug2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=90767664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3491902, 0.3491902, 0.42358288, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=52289895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1289006665]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=863340129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "按键设置"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer" unique_id=1597321419]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer" unique_id=1311668481]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=22096251]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "返回"
+icon = ExtResource("2_3ykye")

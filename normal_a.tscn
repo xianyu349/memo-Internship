@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dr0t6mrg8c641"]
+
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="1_arfx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_044r6"]
+size = Vector2(512, 60)
+
+[node name="NormalA" type="Node2D" unique_id=347512592]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2089245938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1330443750]
+shape = SubResource("RectangleShape2D_044r6")
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=20722150]
+position = Vector2(-241, 2.0000002)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff2" type="Sprite2D" parent="Floor" unique_id=1615373537]
+position = Vector2(-215.00002, 2.0000002)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff3" type="Sprite2D" parent="Floor" unique_id=1252052126]
+position = Vector2(-187, 2.0000002)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff4" type="Sprite2D" parent="Floor" unique_id=854065240]
+position = Vector2(-157, 2.0000002)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff5" type="Sprite2D" parent="Floor" unique_id=213601907]
+position = Vector2(-130, 1.0000002)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff6" type="Sprite2D" parent="Floor" unique_id=678233165]
+position = Vector2(-105.000015, 1.0000001)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff7" type="Sprite2D" parent="Floor" unique_id=667223856]
+position = Vector2(-79, 0.99999994)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff8" type="Sprite2D" parent="Floor" unique_id=49915988]
+position = Vector2(-50, 1)
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff9" type="Sprite2D" parent="Floor" unique_id=1751241551]
+position = Vector2(-20, 1)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff10" type="Sprite2D" parent="Floor" unique_id=1996825574]
+position = Vector2(8, 1)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff11" type="Sprite2D" parent="Floor" unique_id=1436261889]
+position = Vector2(39, 1)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff12" type="Sprite2D" parent="Floor" unique_id=1270913303]
+position = Vector2(71, 0)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff13" type="Sprite2D" parent="Floor" unique_id=252520522]
+position = Vector2(99.99999, 0)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff14" type="Sprite2D" parent="Floor" unique_id=1371237293]
+position = Vector2(127, 0)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff15" type="Sprite2D" parent="Floor" unique_id=918100593]
+position = Vector2(158, -1)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff16" type="Sprite2D" parent="Floor" unique_id=1294423563]
+position = Vector2(183, -1)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff17" type="Sprite2D" parent="Floor" unique_id=553943689]
+position = Vector2(214, -2.0000002)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")
+
+[node name="TerrainCliff18" type="Sprite2D" parent="Floor" unique_id=564200925]
+position = Vector2(240, -2)
+rotation = -0.016312882
+scale = Vector2(0.6562504, 0.5375)
+texture = ExtResource("1_arfx3")

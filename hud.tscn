@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ca68hhwtuelbt"]
+
+[ext_resource type="Script" uid="uid://57dltcx05nre" path="res://hud.gd" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1177462436]
+script = ExtResource("1_37p78")
+
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=1924263873]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 47.0
+show_percentage = false
+
+[node name="StrawberryLabel" type="Label" parent="." unique_id=1923035900]
+offset_left = 240.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 20
+text = "草莓数\"0\""
+
+[node name="Backpack" type="HBoxContainer" parent="." unique_id=692238627]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 60.0
+offset_bottom = 100.0
+theme_override_constants/separation = 10
+
+[node name="Slot1" type="Panel" parent="Backpack" unique_id=302253163]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Backpack/Slot1" unique_id=1381243580]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot2" type="Panel" parent="Backpack" unique_id=1484069199]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Backpack/Slot2" unique_id=262203352]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot3" type="Panel" parent="Backpack" unique_id=1927017791]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Backpack/Slot3" unique_id=863271963]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="DashLabel" type="Label" parent="." unique_id=1234636354]
+offset_left = 240.0
+offset_top = 50.0
+offset_right = 355.0
+offset_bottom = 73.0
+text = "初始\"冲刺 1 / 1\""
+
+[node name="LogLabel" type="Label" parent="." unique_id=65483205]
+offset_left = 20.0
+offset_top = 500.0
+offset_right = 420.0
+offset_bottom = 650.0
+
+[node name="DepthLabel" type="Label" parent="." unique_id=1259595368]
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 280.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 20
+text = "第0层"

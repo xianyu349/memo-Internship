@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://in0tf5yqwxng"]
+
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="1_m12jt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m12jt"]
+size = Vector2(512, 60)
+
+[node name="GroundChunk" type="Node2D" unique_id=1274778268]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=243042514]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=952473319]
+position = Vector2(255.00002, 258)
+scale = Vector2(10.708332, 0.5)
+texture = ExtResource("1_m12jt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1819732074]
+position = Vector2(256, 258)
+shape = SubResource("RectangleShape2D_m12jt")

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://pr6ibr7uv7f7"]
+
+[ext_resource type="Script" uid="uid://b3rn1csrmh61l" path="res://save_chunk.gd" id="1_amcde"]
+[ext_resource type="Texture2D" uid="uid://csn2bgiftv7rr" path="res://Graphics/Gameplay/checkpoint_active.png" id="2_wob1x"]
+[ext_resource type="Texture2D" uid="uid://cjtkqnnl4f6k" path="res://Graphics/Gameplay/checkpoint_inactive.png" id="3_upf7g"]
+[ext_resource type="Texture2D" uid="uid://bqdlrk1e2ik24" path="res://Graphics/World/Tilesets/terrain_cliff.png" id="4_6fxdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bghie"]
+size = Vector2(77.5, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d02nt"]
+size = Vector2(512, 60)
+
+[node name="SaveChunk" type="Node2D" unique_id=682727775]
+script = ExtResource("1_amcde")
+texture_unlit = ExtResource("2_wob1x")
+texture_lit = ExtResource("3_upf7g")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1002732304]
+position = Vector2(256, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1577293950]
+position = Vector2(279, 215)
+shape = SubResource("RectangleShape2D_bghie")
+
+[node name="CheckpointActive" type="Sprite2D" parent="Area2D" unique_id=699223966]
+position = Vector2(276, 125.999985)
+scale = Vector2(2.8125, 3.2343755)
+texture = ExtResource("2_wob1x")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1755471211]
+position = Vector2(256, 256)
+
+[node name="TerrainCliff" type="Sprite2D" parent="Floor" unique_id=767649476]
+position = Vector2(255.00002, 258)
+scale = Vector2(10.708332, 0.5)
+texture = ExtResource("4_6fxdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=14963403]
+position = Vector2(256, 258)
+shape = SubResource("RectangleShape2D_d02nt")
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=26657703]
+position = Vector2(534, 454)
